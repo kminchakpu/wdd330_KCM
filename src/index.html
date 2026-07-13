@@ -35,22 +35,31 @@
         </div>
       </div>
 
-      <template id="product-card-template">
-        <li class="product-card">
-          <a href="">
-            <img src="" alt="" />
-            <h3 class="card__brand"></h3>
-            <h2 class="card__name"></h2>
-            <p class="product-card__price"></p>
-          </a>
-        </li>
-      </template>
+      <section class="categories">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+              <a class="category-card" href="/product_listing/?category=tents">
+                <img src="/images/categories/tent-green.png" alt="Tents">
+                <h3>Tents</h3>
+              </a>
 
-      <section class="products">
-        <h2>Top Products</h2>
-        <ul class="product-list"></ul>
-      </section>
-    </main>
+              <a class="category-card" href="/product_listing/?category=backpacks">
+                <img src="/images/categories/backpack.png" alt="Backpacks">
+                <h3>Backpacks</h3>
+              </a>
+
+              <a class="category-card" href="/product_listing/?category=sleeping-bags">
+                <img src="/images/categories/sleeping-bags.jpg" alt="Sleeping Bags">
+                <h3>Sleeping Bags</h3>
+              </a>
+
+              <a class="category-card" href="/product_listing/?category=hammocks">
+                <img src="/images/categories/hammock.png" alt="Hammocks">
+                <h3>Hammocks</h3>
+              </a>
+            </div>
+          </section>
+        </main>
     <footer id="main-footer"></footer>
   </body>
 </html>
