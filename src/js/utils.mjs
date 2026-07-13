@@ -57,7 +57,10 @@ export function renderListWithTemplate(
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
-export function renderWithTemplate(template, parentElement, data, callback) {
+export function renderWithTemplate(
+  template, 
+  parentElement, 
+  data, callback) {
   parentElement.innerHTML = template;
   if (callback) {
     callback(data);
@@ -65,17 +68,21 @@ export function renderWithTemplate(template, parentElement, data, callback) {
 }
 
 export async function loadTemplate(path) {
-  const response = await fetch(path);
-  return await response.text();
+    const response = await fetch(path);
+    const template = await response.text();
+    return template;
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("../partials/header.html");
-  const footerTemplate = await loadTemplate("../partials/footer.html");
+    // Load header
+    const headerTemplate = await loadTemplate("../partials/header.html");
+    const headerElement = document.querySelector("#main-header");
 
-  const headerElement = document.querySelector("#main-header");
-  const footerElement = document.querySelector("#main-footer");
+    renderWithTemplate(headerTemplate, headerElement);
 
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
+    // Load footer
+    const footerTemplate = await loadTemplate("../partials/footer.html");
+    const footerElement = document.querySelector("#main-footer");
+
+    renderWithTemplate(footerTemplate, footerElement);
 }
